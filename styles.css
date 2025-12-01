@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff0000 0%, #38016f 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 30px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.toolbar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 15px;
+    background: #960000;
+    border-radius: 10px;
+}
+
+.tool-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.tool-section label {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: #590077;
+    color: white;
+}
+
+button:hover {
+    background: #bf00ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(143, 0, 183, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+    border-color: #999;
+}
+
+.color-btn.active {
+    border-color: #333;
+    border-width: 4px;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #333;
+}
+
+input[type="range"] {
+    width: 120px;
+    cursor: pointer;
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#drawingCanvas {
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    cursor: crosshair;
+    display: block;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.size-display {
+    font-weight: 600;
+    color: #e9a8ff;
+    min-width: 35px;
+    text-align: center;
+}
+
+.tool-group {
+    display: flex;
+    gap: 8px;
+    padding: 5px;
+    background: white;
+    border-radius: 8px;
+}
+
+.mode-btn {
+    padding: 8px 16px;
+    background: white;
+    color: #590077;
+    border: 2px solid #590077;
+}
+
+.mode-btn.active {
+    background: #590077;
+    color: white;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanvi's SSUI final</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>tanvi's tracing tool</h1>
+        
+        <div class="toolbar">
+            <div class="tool-section">
+                <label>Mode:</label>
+                <div class="tool-group">
+                    <button class="mode-btn active" id="drawMode">Draw</button>
+                    <button class="mode-btn" id="eraseMode"> Erase</button>
+                    <button class="mode-btn" id="fillMode">Fill</button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <label>Brush:</label>
+                <div class="tool-group">
+                    <button class="mode-btn active" id="brushRound">Round</button>
+                    <button class="mode-btn" id="brushSquare"> Square</button>
+                    <button class="mode-btn" id="brushSpray">Spray</button>
+                    <button class="mode-btn" id="brushCalligraphy">Calligraphy</button>
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <label>Colors:</label>
+                <button class="color-btn" style="background: black;" data-color="black"></button>
+                <button class="color-btn active" style="background: #667eea;" data-color="#667eea"></button>
+                <button class="color-btn" style="background: #e74c3c;" data-color="#e74c3c"></button>
+                <button class="color-btn" style="background: #2ecc71;" data-color="#2ecc71"></button>
+                <button class="color-btn" style="background: #f39c12;" data-color="#f39c12"></button>
+                <input type="color" id="customColor" title="Custom Color">
+            </div>
+
+            <div class="tool-section">
+                <label>Size:</label>
+                <input type="range" id="brushSize" min="1" max="50" value="5">
+                <span class="size-display" id="sizeDisplay">5</span>
+            </div>
+
+            <div class="tool-section" style="margin-left: auto;">
+                <button id="clearBtn"> Clear</button>
+                <button id="undoBtn">Undo</button>
+                <button id="saveBtn">Save</button>
+            </div>
+        </div>
+
+        <canvas id="drawingCanvas" width="940" height="600"></canvas>
+    </div>
+
+    <script type="module">
+        import { DrawingApp } from './drawingmain.js';
+        
+        const app = new DrawingApp('drawingCanvas');
+    </script>
+</body>
+</html>
