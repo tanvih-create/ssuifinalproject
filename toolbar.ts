@@ -30,10 +30,13 @@ export class Toolbar {
         const drawBtn = document.getElementById('drawMode');
         const eraseBtn = document.getElementById('eraseMode');
         const fillBtn = document.getElementById('fillMode');
+        const flowerBtn = document.getElementById('flowerMode');
         
         if (drawBtn) drawBtn.onclick = () => this.setMode('draw');
         if (eraseBtn) eraseBtn.onclick = () => this.setMode('erase');
         if (fillBtn) fillBtn.onclick = () => this.setMode('fill');
+        if (flowerBtn) flowerBtn.onclick = () => this.setMode('flower');   
+
     }
 
  
@@ -42,12 +45,12 @@ export class Toolbar {
         const roundBtn = document.getElementById('brushRound');
         const squareBtn = document.getElementById('brushSquare');
         const sprayBtn = document.getElementById('brushSpray');
-        const calligraphyBtn = document.getElementById('brushCalligraphy');
+        const stippleBtn = document.getElementById('brushStipple');
         
         if (roundBtn) roundBtn.onclick = () => this.setBrushStyle('round');
         if (squareBtn) squareBtn.onclick = () => this.setBrushStyle('square');
         if (sprayBtn) sprayBtn.onclick = () => this.setBrushStyle('spray');
-        if (calligraphyBtn) calligraphyBtn.onclick = () => this.setBrushStyle('calligraphy');
+        if (stippleBtn) stippleBtn.onclick = () => this.setBrushStyle('stipple');
     }
 
  
@@ -133,15 +136,15 @@ export class Toolbar {
  
     protected _updateBrushButtons(activeBrush: BrushType): void {
         const buttons = document.querySelectorAll('[id^="brush"]');
-        buttons.forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        const capitalizedBrush = activeBrush.charAt(0).toUpperCase() + activeBrush.slice(1);
-        const activeBtn = document.getElementById(`brush${capitalizedBrush}`);
-        if (activeBtn) {
-            activeBtn.classList.add('active');
-        }
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    const capitalizedBrush = activeBrush.charAt(0).toUpperCase() + activeBrush.slice(1);
+    const activeBtn = document.getElementById(`brush${capitalizedBrush}`);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+    }
     }
 
  

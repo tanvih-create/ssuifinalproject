@@ -4,6 +4,7 @@
 import { DrawMode } from './drawingmain.js';
 import { BrushType, BrushStyles } from './brushstyle.js';
 import { FillTool } from './filltool.js';
+import { FlowerTool } from './flower.js';
 
 export class DrawingCanvas {
     public constructor(canvas: HTMLCanvasElement, parent: any) {
@@ -38,7 +39,7 @@ export class DrawingCanvas {
         
          this._setupEventHandlers();
         
-        // Save initial (blank) state
+        //  initial (blank) state
         this._saveState();
     }
 
@@ -116,6 +117,12 @@ export class DrawingCanvas {
         // perform flood fill and return early
         if (this._mode === 'fill') {
             FillTool.floodFill(this._ctx, this._canvas, x, y, this._currentColor);
+            this._saveState();
+            return;
+        }
+        //perform flower stamp
+        if (this._mode === 'flower') {
+            FlowerTool.drawFlower(this._ctx, x, y, this._brushSize * 3, this._currentColor);
             this._saveState();
             return;
         }
@@ -255,3 +262,4 @@ export class DrawingCanvas {
     
 
 }  
+

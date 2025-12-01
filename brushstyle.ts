@@ -1,7 +1,7 @@
 // BrushStyles.ts
 // different brush style implementations
 
-export type BrushType = 'round' | 'square' | 'spray' | 'calligraphy';
+export type BrushType = 'round' | 'square' | 'spray' | 'stipple';
 export class BrushStyles {
    //static methods
     
@@ -25,8 +25,8 @@ export class BrushStyles {
             case 'spray':
                 this.drawSpray(ctx, x2, y2, size, color);
                 break;
-            case 'calligraphy':
-                this.drawCalligraphy(ctx, x1, y1, x2, y2, size, color);
+            case 'stipple':
+                this.drawStipple(ctx, x1, y1, x2, y2, size, color);
                 break;
         }
     }
@@ -89,27 +89,26 @@ protected static drawSquare(
 
  
     
-    protected static drawCalligraphy(
+    protected static drawStipple(
         ctx: CanvasRenderingContext2D,
         x1: number,
         y1: number,
         x2: number,
         y2: number,
-        width: number,
+        size: number,
         color: string
     ): void {
-        const angle = Math.atan2(y2 - y1, x2 - x1);
-        const perpAngle = angle + Math.PI / 2;
+         const dx = x2 - x1;
+        const dy = y2 - y1;
+        const distance = Math.sqrt(dx * dx + dy * dy);
         
-        const w = width * 0.3;   
-        const h = width;        
+        if (distance < size * 0.5) return;
         
-        ctx.save();
+        //circle at curr position
         ctx.fillStyle = color;
-        ctx.translate(x2, y2);
-        ctx.rotate(perpAngle);
-        ctx.fillRect(-w/2, -h/2, w, h);
-        ctx.restore();
+        ctx.beginPath();
+        ctx.arc(x2, y2, size / 2, 0, Math.PI * 2);
+        ctx.fill();
     }
 
    
